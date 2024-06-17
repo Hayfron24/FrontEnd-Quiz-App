@@ -8,5 +8,16 @@ import { Component } from '@angular/core';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
+  themeBtn = "../../assets/images/light-btn.svg";
+  isDarkMode = true;
 
+
+  OnDarkMode(){
+    this.isDarkMode = !this.isDarkMode;
+
+    this.themeBtn = this.isDarkMode?"../../assets/images/light-btn.svg":"../../assets/images/dark-btn.svg";
+
+    console.log(this.isDarkMode);
+  }
+  
 }
