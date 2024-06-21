@@ -16,3 +16,7 @@ body{
     height: 100vh;
     background: #F4F6FA url("../src/assets/images/pattern-background-desktop-light.svg") no-repeat;
 }
+
+.dark-bg{
+    background: #313E51 url("../src/assets/images/pattern-background-desktop-dark.svg") no-repeat;
+}
