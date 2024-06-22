@@ -1,13 +1,13 @@
 import { Component,Inject, PLATFORM_ID } from '@angular/core';
 import { DataService } from '../data.service';
-import { isPlatformBrowser } from '@angular/common';
+import { NgFor, NgIf, NgStyle, isPlatformBrowser } from '@angular/common';
 
 
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [],
+  imports: [NgIf,NgFor,NgStyle],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
@@ -28,7 +28,7 @@ export class HeaderComponent {
 
     this.themeBtn = this.isDarkMode?"../../assets/images/light-btn.svg":"../../assets/images/dark-btn.svg";
 
-    
+
     if (isPlatformBrowser(this.platformId)) {
       this.isDarkMode = !this.isDarkMode;
       document.body.classList.toggle('dark-bg')

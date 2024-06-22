@@ -46,7 +46,7 @@ export class HtmlSubjectComponent implements OnInit{
       this.currentQuestionIndex++;
       this.selectedOption = null;
     }else{
-      // this.isNotSelected = true;
+      this.isNotSelected = true;
     }
   }
 
