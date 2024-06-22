@@ -5,13 +5,13 @@ import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
-  selector: 'app-html-subject',
+  selector: 'app-subject',
   standalone: true,
   imports: [NgFor,NgIf,NgClass],
-  templateUrl: './html-subject.component.html',
-  styleUrl: './html-subject.component.css'
+  templateUrl: './subjects.component.html',
+  styleUrl: './subjects.component.css'
 })
-export class HtmlSubjectComponent implements OnInit{
+export class SubjectComponent implements OnInit{
   data: any;
   currentQuestionIndex = 0;
   displayQestion: []= [];
@@ -19,6 +19,10 @@ export class HtmlSubjectComponent implements OnInit{
   isNotSelected = false;
 
   selectedOption: number | null = null;
+  isCorrectAnswer = false;
+  isSubmitted = false;
+  score = 0;
+
 
 
   constructor(private dataService: DataService, private route: ActivatedRoute){};
@@ -41,12 +45,30 @@ export class HtmlSubjectComponent implements OnInit{
     this.isNotSelected = false;
   }
 
+  submitAnswer(): void {
+    if (this.selectedOption !== null) {
+      this.isSubmitted = true;
+      const selectedAnswer = this.data.questions[this.currentQuestionIndex].options[this.selectedOption];
+      const correctAnswer = this.data.questions[this.currentQuestionIndex].answer;
+      if(selectedAnswer === correctAnswer){
+        this.isCorrectAnswer = true;
+        this.score +=1;
+        console.log(this.score)
+      }else{
+          this.isCorrectAnswer = false;  
+      }
+
+
+      console.log(this.isCorrectAnswer);
+    }else{
+      this.isNotSelected = true;
+    }
+  }
+
   nextQuestion(): void {
     if (this.currentQuestionIndex < this.data.questions.length - 1 && this.selectedOption !==null) {
       this.currentQuestionIndex++;
       this.selectedOption = null;
-    }else{
-      this.isNotSelected = true;
     }
   }
 

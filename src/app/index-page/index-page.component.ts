@@ -30,7 +30,7 @@ export class IndexPageComponent implements OnInit{
 
 
   goToQuestios(cardId:number): void {
-    this.router.navigate(['/html-subject', cardId]);
+    this.router.navigate(['/subjects', cardId]);
     // console.log(cardId);
             
 }

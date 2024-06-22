@@ -47,3 +47,43 @@ body{
   .text-white {
     color: white !important;
   }
+  .border-2 {
+    border-width: 2px;
+  }
+  .border-purple-600 {
+    border-color: #A729F5;
+  }
+  .border-green-600 {
+    border-color: #38a169;
+  }
+  .border-red-600 {
+    border-color: #e53e3e;
+  }
+  .bg-[#A729F5] {
+    background-color: #A729F5;
+  }
+  .bg-green-600 {
+    background-color: #38a169;
+  }
+  .bg-red-600 {
+    background-color: #e53e3e;
+  }
+  .bg-slate-200 {
+    background-color: #e2e8f0;
+  }
+  .text-white {
+    color: #fff;
+  }
+  .text-[#626C7F] {
+    color: #626C7F;
+  }
+  .text-green-600 {
+    color: #38a169;
+  }
+  .cursor-pointer {
+    cursor: pointer;
+  }
+  .cursor-not-allowed {
+    cursor: not-allowed;
+  }
+  

@@ -15,7 +15,6 @@ export class DataService {
 
   toggleDarkMode(){
     return this.isDarkModeSubject.next(!this.isDarkModeSubject.value); 
-
   }
   
   constructor(private http: HttpClient) { }

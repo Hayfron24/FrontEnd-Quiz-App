@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HtmlSubjectComponent } from './html-subject.component';
+import { SubjectComponent } from './subjects.component';
 
 describe('HtmlSubjectComponent', () => {
-  let component: HtmlSubjectComponent;
-  let fixture: ComponentFixture<HtmlSubjectComponent>;
+  let component: SubjectComponent;
+  let fixture: ComponentFixture<SubjectComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HtmlSubjectComponent]
+      imports: [SubjectComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(HtmlSubjectComponent);
+    fixture = TestBed.createComponent(SubjectComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
