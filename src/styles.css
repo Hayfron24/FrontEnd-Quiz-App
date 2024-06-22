@@ -20,3 +20,30 @@ body{
 .dark-bg{
     background: #313E51 url("../src/assets/images/pattern-background-desktop-dark.svg") no-repeat;
 }
+.no-hover:hover {
+    background-color: white !important;
+  }
+  
+  .no-hover .group-hover\:bg-purple-200 {
+    background-color: white !important;
+  }
+  
+  .no-hover .group-hover\:text-purple-600 {
+    color: #626C7F !important;
+  }
+  
+  /* Ensure selected option letter stays purple */
+  .no-hover .bg-purple-200 {
+    background-color: #E2D8F9 !important;
+  }
+  
+  .no-hover .text-purple-600 {
+    color: #7C3AED !important;
+  }
+  
+  /* Override background color for the selected option letter */
+ 
+  
+  .text-white {
+    color: white !important;
+  }

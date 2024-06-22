@@ -27,6 +27,8 @@ export class HeaderComponent {
     // this.isDarkMode = !this.isDarkMode;
 
     this.themeBtn = this.isDarkMode?"../../assets/images/light-btn.svg":"../../assets/images/dark-btn.svg";
+
+    
     if (isPlatformBrowser(this.platformId)) {
       this.isDarkMode = !this.isDarkMode;
       document.body.classList.toggle('dark-bg')
