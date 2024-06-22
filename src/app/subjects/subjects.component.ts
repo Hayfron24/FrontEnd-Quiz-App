@@ -21,6 +21,7 @@ export class SubjectComponent implements OnInit{
   selectedOption: number | null = null;
   isCorrectAnswer = false;
   isSubmitted = false;
+
   score = 0;
 
 
@@ -69,6 +70,7 @@ export class SubjectComponent implements OnInit{
     if (this.currentQuestionIndex < this.data.questions.length - 1 && this.selectedOption !==null) {
       this.currentQuestionIndex++;
       this.selectedOption = null;
+      this.isSubmitted = false
     }
   }
 
