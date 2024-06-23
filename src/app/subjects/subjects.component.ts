@@ -46,7 +46,7 @@ export class SubjectComponent implements OnInit{
     this.isNotSelected = false;
   }
 
-  submitAnswer(): void {
+  submitAnswer(cardId:number): void {
     if (this.selectedOption !== null) {
       this.isSubmitted = true;
       const selectedAnswer = this.data.questions[this.currentQuestionIndex].options[this.selectedOption];
@@ -68,10 +68,11 @@ export class SubjectComponent implements OnInit{
 
     if(this.numberOfQuestions===10){
       setTimeout(() => {
-        this.router.navigate(['/scoreBoard']);
+        this.router.navigate(['/scoreBoard', cardId]);
       }, 2000);
     }
     console.log(this.numberOfQuestions);
+    console.log(cardId);
   }
 
   nextQuestion(): void {

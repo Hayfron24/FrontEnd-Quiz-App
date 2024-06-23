@@ -1,5 +1,5 @@
-<div  *ngIf="data" class="flex justify-center">
-    <div class="w-4/5 grid grid-cols-2">
+<div  *ngIf="data" class="flex justify-center mt-10">
+    <div class="w-4/5 grid grid-cols-2 mb-10">
         <!-- questions container -->
         <div class="grid-cols-1 relative">
             <p class="dark:text-white font-light italic text-[#626C7F] pb-7">Question {{currentQuestionIndex+1}} of 10</p>
@@ -33,7 +33,7 @@
                 <i *ngIf="isSubmitted && option === data.questions[currentQuestionIndex].answer && !isNotSelected && selectedOption !== null" class="fa-regular fa-circle-check text-xl text-green-600 ml-2 absolute right-8"></i>
                 <i *ngIf="isSubmitted && option === data.questions[currentQuestionIndex].answer && selectedOption === i" class="fa-regular fa-circle-check text-xl text-green-600 ml-2 absolute right-8"></i>
                 <i *ngIf="isSubmitted && selectedOption === i && !isCorrectAnswer" class="fa-regular fa-circle-xmark text-xl text-red-500 ml-2 absolute right-8"></i>            </div>
-            <button *ngIf="!isSubmitted" class="w-full h-20 bg-[#A729F5] text-xl text-white font-medium rounded-2xl hover:bg-[#d18afe]" (click) = "submitAnswer()">
+            <button *ngIf="!isSubmitted" class="w-full h-20 bg-[#A729F5] text-xl text-white font-medium rounded-2xl hover:bg-[#d18afe]" (click) = "submitAnswer(data.id)">
                 Submit Answer
             </button>
             <button *ngIf="isSubmitted && numberOfQuestions < 10" class="w-full h-20 bg-[#A729F5] text-xl text-white font-medium rounded-2xl hover:bg-[#d18afe]" (click) = "nextQuestion()">

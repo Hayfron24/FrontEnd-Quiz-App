@@ -34,7 +34,4 @@ export class IndexPageComponent implements OnInit{
     // console.log(cardId);          
   }
 
-  onViewQuestion(event: any){
-    console.log(event);
-  }
 }

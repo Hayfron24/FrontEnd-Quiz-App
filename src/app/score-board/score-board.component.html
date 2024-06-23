@@ -1,1 +1,26 @@
-<p>score-board works!</p>
+<div *ngIf="data" class="flex justify-center ">
+    <div class="w-4/5 grid grid-cols-2 mb-10 text-[#3B4D66]">
+        <div class="dark:text-white grid-cols-1 text-7xl text-[#3B4D66]">
+            <p class="font-light pb-3">Quiz completed</p>
+            <p class="font-semibold">You scored...</p>
+        </div>
+        <div>
+            <div class="dark:bg-[#3B4D66] dark:text-white bg-white flex justify-center items-center flex-col rounded-3xl shadow-lg p-9 mb-8">
+                <div class="flex items-center text-3xl text-[#3B4D66]font-medium">
+                    <div [ngStyle]="{'background': data.iconBg }" class="w-16 h-16 flex justify-center items-center rounded-xl mr-6">
+                        <img [src]="data.icon" alt="">
+                    </div>
+                    <p>{{data.title}}</p>
+                </div>
+                    <p class="text-[10rem] font-semibold">8</p>
+                    <p class="dark:text-[#ABC1E1] text-2xl font-light text-[#626C7F]">out of 10</p>
+            </div>
+            <button (click)="toIndexPage()" class="w-full h-20 bg-[#A729F5] text-2xl text-white font-medium rounded-2xl hover:bg-[#d18afe]">
+                Play Again
+            </button>
+        </div>
+        
+        
+    </div>
+
+</div>

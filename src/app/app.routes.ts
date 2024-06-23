@@ -8,6 +8,6 @@ import { ScoreBoardComponent } from './score-board/score-board.component';
 export const routes: Routes = [
     {path: '', component: IndexPageComponent},
     {path: 'subjects/:cardId', component: SubjectComponent},
-    {path: 'scoreBoard', component: ScoreBoardComponent},
+    {path: 'scoreBoard/:cardId', component: ScoreBoardComponent},
 
 ];
