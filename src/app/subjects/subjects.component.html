@@ -7,40 +7,40 @@
             <h2 class="dark:text-white w-4/5 text-4xl text-[#3B4D66] font-medium">{{data.questions[currentQuestionIndex].question}}</h2>
             
             <!-- Progress Bar -->
-            <div class="w-3/12 bg-gray-200 rounded-full h-2.5 mt-4 mb-4 fixed bottom-52">
+            <div class="w-4/5 bg-gray-200 rounded-full h-2.5 mt-4 mb-4 absolute bottom-16">
                 <div class="bg-purple-600 h-2.5 rounded-full" [style.width.%]="(currentQuestionIndex + 1) / data.questions.length * 100"></div>
             </div>
         </div>
         <!-- options container -->
         <div class="">
-            <div *ngFor="let option of data.questions[currentQuestionIndex].options; let i = index" (click)="selectOption(i)" class="dark:bg-[#3B4D66] bg-white p-4 flex rounded-3xl items-center group mb-5 relative shadow-md"
+            <div *ngFor="let option of data.questions[currentQuestionIndex].options; let i = index" (click)="selectOption(i)" class="dark:bg-[#3B4D66] bg-white p-4 h-[6.5rem] flex rounded-3xl items-center group mb-6 relative shadow-md"
             [ngClass]="{'border-2 border-purple-600': selectedOption === i && !isSubmitted,
                     'border-2 border-green-600': isSubmitted && selectedOption === i && isCorrectAnswer,
                     'border-2 border-red-600': isSubmitted && selectedOption === i && !isCorrectAnswer,
                     'cursor-pointer': !isSubmitted,
                     'cursor-not-allowed': isSubmitted}">
-                <div class="flex bg-slate-200 px-4 py-2 justify-center items-center rounded-md mr-6 group-hover:bg-purple-200" [ngClass]="{'bg-[#A729F5]': selectedOption === i, 'bg-slate-200 group-hover:bg-purple-200': selectedOption !== i,'bg-green-600': isSubmitted && selectedOption === i && isCorrectAnswer,
+                <div class="flex bg-slate-200 px-6 py-4 justify-center items-center rounded-md mr-6 group-hover:bg-purple-200" [ngClass]="{'bg-[#A729F5]': selectedOption === i, 'bg-slate-200 group-hover:bg-purple-200': selectedOption !== i,'bg-green-600': isSubmitted && selectedOption === i && isCorrectAnswer,
                 'bg-red-600': isSubmitted && selectedOption === i && !isCorrectAnswer,
                 'bg-green-600-correct': isSubmitted && option === data.questions[currentQuestionIndex].answer && selectedOption !== i && !isCorrectAnswer,
                 }">
 
-                    <p class="text-2xl text-[#626C7F] group-hover:text-purple-600 transition-0.2 " [ngClass]="{'text-white': selectedOption === i, 'text-[#626C7F] group-hover:text-purple-600': selectedOption !== i}">
+                    <p class="text-2xl text-[#626C7F] font-medium group-hover:text-purple-600 transition-0.2 " [ngClass]="{'text-white': selectedOption === i, 'text-[#626C7F] group-hover:text-purple-600': selectedOption !== i}">
 
                         {{'ABCDEFGHIJKLMNOPQRSTUVWXYZ'[i]}}
                     </p>
                 </div>
-                <p class="dark:text-white text-2xl text-[#3B4D66]" >{{option}}</p>
+                <p class="dark:text-white text-2xl font-medium text-[#3B4D66] w-[26rem]" >{{option}}</p>
                 <i *ngIf="isSubmitted && option === data.questions[currentQuestionIndex].answer && !isNotSelected && selectedOption !== null" class="fa-regular fa-circle-check text-xl text-green-600 ml-2 absolute right-8"></i>
                 <i *ngIf="isSubmitted && option === data.questions[currentQuestionIndex].answer && selectedOption === i" class="fa-regular fa-circle-check text-xl text-green-600 ml-2 absolute right-8"></i>
                 <i *ngIf="isSubmitted && selectedOption === i && !isCorrectAnswer" class="fa-regular fa-circle-xmark text-xl text-red-500 ml-2 absolute right-8"></i>            </div>
             <button *ngIf="!isSubmitted" class="w-full h-20 bg-[#A729F5] text-xl text-white font-medium rounded-2xl hover:bg-[#d18afe]" (click) = "submitAnswer()">
                 Submit Answer
             </button>
-            <button *ngIf="isSubmitted" class="w-full h-20 bg-[#A729F5] text-xl text-white font-medium rounded-2xl hover:bg-[#d18afe]" (click) = "nextQuestion()">
+            <button *ngIf="isSubmitted && numberOfQuestions < 10" class="w-full h-20 bg-[#A729F5] text-xl text-white font-medium rounded-2xl hover:bg-[#d18afe]" (click) = "nextQuestion()">
                 Next Question
             </button>
 
-            <p  *ngIf="isNotSelected" class="text-red-500 text-center mt-6"><i class="fa-regular fa-circle-xmark pr-1 text-lg"></i> Please submit an answer</p>
+            <p  *ngIf="isNotSelected " class="text-red-500 text-center mt-6"><i class="fa-regular fa-circle-xmark pr-1 text-lg"></i> Please submit an answer</p>
 
         </div>
     </div>

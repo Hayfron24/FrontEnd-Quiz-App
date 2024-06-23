@@ -1,20 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { NgClass, NgFor, NgIf } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterOutlet, Router } from '@angular/router';
 
 
 @Component({
   selector: 'app-subject',
   standalone: true,
-  imports: [NgFor,NgIf,NgClass],
+  imports: [NgFor,NgIf,NgClass,RouterOutlet],
   templateUrl: './subjects.component.html',
   styleUrl: './subjects.component.css'
 })
 export class SubjectComponent implements OnInit{
   data: any;
-  currentQuestionIndex = 0;
-  displayQestion: []= [];
+  currentQuestionIndex = 0;  
 
   isNotSelected = false;
 
@@ -22,11 +21,12 @@ export class SubjectComponent implements OnInit{
   isCorrectAnswer = false;
   isSubmitted = false;
 
+  numberOfQuestions = 0;
   score = 0;
 
 
 
-  constructor(private dataService: DataService, private route: ActivatedRoute){};
+  constructor(private dataService: DataService, private route: ActivatedRoute, private router: Router){};
 
 
   ngOnInit(): void{
@@ -51,6 +51,7 @@ export class SubjectComponent implements OnInit{
       this.isSubmitted = true;
       const selectedAnswer = this.data.questions[this.currentQuestionIndex].options[this.selectedOption];
       const correctAnswer = this.data.questions[this.currentQuestionIndex].answer;
+      this.numberOfQuestions++;
       if(selectedAnswer === correctAnswer){
         this.isCorrectAnswer = true;
         this.score +=1;
@@ -64,6 +65,13 @@ export class SubjectComponent implements OnInit{
     }else{
       this.isNotSelected = true;
     }
+
+    if(this.numberOfQuestions===10){
+      setTimeout(() => {
+        this.router.navigate(['/scoreBoard']);
+      }, 2000);
+    }
+    console.log(this.numberOfQuestions);
   }
 
   nextQuestion(): void {

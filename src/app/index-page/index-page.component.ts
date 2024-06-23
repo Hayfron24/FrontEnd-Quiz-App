@@ -31,9 +31,8 @@ export class IndexPageComponent implements OnInit{
 
   goToQuestios(cardId:number): void {
     this.router.navigate(['/subjects', cardId]);
-    // console.log(cardId);
-            
-}
+    // console.log(cardId);          
+  }
 
   onViewQuestion(event: any){
     console.log(event);
