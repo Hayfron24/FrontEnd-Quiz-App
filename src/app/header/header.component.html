@@ -1,9 +1,15 @@
 <div class="flex justify-center ">
-    <div class="w-4/5 flex justify-between h-36 pt-14 mt-7">
-        <div>
-            
-        </div>
-        <div class="flex">
+    <div class="w-4/5 flex relative justify-between h-36 pt-14 mt-7">
+        <!-- subject title -->
+        <div *ngIf="subject">
+            <div class="flex items-center">
+                <div [ngStyle]="{'background': subject.iconBg}" class="w-14 h-14 flex justify-center items-center rounded-md mr-4">
+                    <img [src]="subject.icon" alt="">
+                </div>
+              <h1 class="dark:text-white text-3xl font-medium ">{{ subject.title }}</h1>
+            </div>
+          </div>
+        <div class="flex absolute right-0">
             <span><img src="../../assets/images/icon-sun-dark.svg" alt=""></span>
             <button (click)="OnDarkMode()" class="mx-5 h-0"><img [src]="themeBtn" alt=""></button>
             <span><img src="../../assets/images/icon-moon-dark.svg" alt=""></span>

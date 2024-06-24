@@ -26,7 +26,7 @@ export class SubjectComponent implements OnInit{
 
 
 
-  constructor(private dataService: DataService, private route: ActivatedRoute, private router: Router){};
+  constructor(private dataService: DataService, private route: ActivatedRoute, private router: Router, private scoreData: DataService){};
 
 
   ngOnInit(): void{
@@ -69,6 +69,7 @@ export class SubjectComponent implements OnInit{
     if(this.numberOfQuestions===10){
       setTimeout(() => {
         this.router.navigate(['/scoreBoard', cardId]);
+        this.scoreData.getScore(this.score)
       }, 2000);
     }
     console.log(this.numberOfQuestions);

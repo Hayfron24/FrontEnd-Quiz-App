@@ -16,7 +16,8 @@ import { RouterOutlet, Router } from '@angular/router';
 export class IndexPageComponent implements OnInit{
   data: any;
 
-  constructor(private dataService: DataService, private router: Router) {}
+
+  constructor(private dataService: DataService, private router: Router, private selectedService: DataService) {}
 
 
   ngOnInit(): void {
@@ -24,14 +25,24 @@ export class IndexPageComponent implements OnInit{
       this.data = response;
       console.log(this.data);
     });
+
+    this.selectedService.clearSubject();
+
   }
 
 
 
 
-  goToQuestios(cardId:number): void {
-    this.router.navigate(['/subjects', cardId]);
-    // console.log(cardId);          
+  // goToQuestios(cardId:number): void {
+  //   this.router.navigate(['/subjects', cardId]);
+  //   // console.log(cardId);          
+  // }
+
+
+
+  selectSubject(subject: any) {
+    this.selectedService.selectSubject(subject);;
+    this.router.navigate(['/subjects', subject.id]);
   }
 
 }
