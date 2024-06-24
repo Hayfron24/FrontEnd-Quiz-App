@@ -36,5 +36,6 @@ export class ScoreBoardComponent implements OnInit{
   toIndexPage(){
     this.router.navigate(['/']);
     this.subjectService.clearSubject();
+    this.dataService.clearScore();
   }
 }

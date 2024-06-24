@@ -1,4 +1,4 @@
-<div  *ngIf="data" class="flex justify-center mt-10">
+<div  *ngIf="data" class="flex justify-center mt-9">
     <div class="w-4/5 grid grid-cols-2 mb-10">
         <!-- questions container -->
         <div class="grid-cols-1 relative">
@@ -7,7 +7,7 @@
             <h2 class="dark:text-white w-4/5 text-4xl text-[#3B4D66] font-medium">{{data.questions[currentQuestionIndex].question}}</h2>
             
             <!-- Progress Bar -->
-            <div class="w-4/5 bg-gray-200 rounded-full h-2.5 mt-4 mb-4 absolute bottom-16">
+            <div class="w-4/5 bg-gray-200 rounded-full h-2.5 mt-4 mb-4 absolute bottom-20">
                 <div class="bg-purple-600 h-2.5 rounded-full" [style.width.%]="(currentQuestionIndex + 1) / data.questions.length * 100"></div>
             </div>
         </div>

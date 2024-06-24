@@ -34,6 +34,10 @@ export class DataService {
   getScore(score:number){
     this.finalScoreSource.next(score);
   }
+
+  clearScore(){
+    this.finalScoreSource.next(0);
+  }
   
   constructor(private http: HttpClient) { }
 
