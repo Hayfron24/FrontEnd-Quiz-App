@@ -12,9 +12,16 @@ export class DataService {
   private isDarkModeSubject = new BehaviorSubject<boolean>(false);
 
   isDarkMode$ = this.isDarkModeSubject.asObservable();
+  
 
   toggleDarkMode(){
-    return this.isDarkModeSubject.next(!this.isDarkModeSubject.value); 
+    const newValue = !this.isDarkModeSubject.value;
+    localStorage.setItem('isDarkMode', newValue.toString());
+    this.isDarkModeSubject.next(newValue);
+  }
+
+  setDarkMode(isDarkMode: boolean) {
+    this.isDarkModeSubject.next(isDarkMode);
   }
 
   private selectedSubjectSource = new BehaviorSubject<any>(null);

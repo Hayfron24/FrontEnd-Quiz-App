@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [NgIf,NgFor,NgStyle],
+  imports: [NgIf,NgFor,NgStyle,],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
@@ -25,7 +25,7 @@ export class HeaderComponent implements OnInit{
     if (isPlatformBrowser(this.platformId)) {
       this.isDarkMode = localStorage.getItem('isDarkMode') === 'true';
       this.updateTheme();
-      this.themeService.toggleDarkMode();
+      // this.themeService.toggleDarkMode();
     }
   }
 
