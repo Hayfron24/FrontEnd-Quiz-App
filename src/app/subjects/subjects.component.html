@@ -4,22 +4,22 @@
         <div class="grid-cols-1 relative md:mb-16">
             <p class="dark:text-white text-sm md:text-lg font-light italic text-[#626C7F] pb-3 md:pb-7">Question {{currentQuestionIndex+1}} of 10</p>
 
-            <h2 class="dark:text-white w-full lg:w-4/5 text-xl md:text-4xl text-[#3B4D66] md:mb-10 font-semibold">{{data.questions[currentQuestionIndex].question}}</h2>
+            <h2 class="dark:text-white w-full lg:w-4/5 text-xl md:text-4xl text-[#3B4D66] mb-6 md:mb-10 font-semibold">{{data.questions[currentQuestionIndex].question}}</h2>
             
             <!-- Progress Bar -->
-            <div class="w-full lg:w-4/5 bg-gray-200 rounded-full h-2.5 mt-4 mb-4 lg:absolute bottom-20">
+            <div class="w-full lg:w-4/5 bg-gray-200 rounded-full h-2.5 mt-4 mb-10 md:mb-4 lg:absolute bottom-20">
                 <div class="bg-purple-600 h-2.5 rounded-full" [style.width.%]="(currentQuestionIndex + 1) / data.questions.length * 100"></div>
             </div>
         </div>
         <!-- options container -->
-        <div class="">
-            <div *ngFor="let option of data.questions[currentQuestionIndex].options; let i = index" (click)="selectOption(i)" class="dark:bg-[#3B4D66] bg-white rounded-xl md:rounded-2xl px-3 md:p-3 h-16 md:h-20 lg:p-5 lg:h-28 flex items-center mb-6 shadow-md"
+        <div class="relative">
+            <div *ngFor="let option of data.questions[currentQuestionIndex].options; let i = index" (click)="selectOption(i)" class="dark:bg-[#3B4D66] bg-white rounded-xl md:rounded-2xl px-3 p-3 md:h-20 lg:p-5 lg:h-28 flex items-center mb-6 shadow-md"
             [ngClass]="{'border-3 border-purple-600': selectedOption === i && !isSubmitted,
                     'border-3 border-green-600': isSubmitted && selectedOption === i && isCorrectAnswer,
                     'border-3 border-red-600': isSubmitted && selectedOption === i && !isCorrectAnswer,
                     'cursor-pointer': !isSubmitted,
                     'cursor-not-allowed': isSubmitted}">
-                <div class="flex bg-slate-200 w-10 h-10 md:w-14 md:h-14 lg:px-6 lg:py-4 justify-center items-center rounded-md mr-2 md:mr-6 group-hover:bg-purple-200" [ngClass]="{'bg-[#A729F5]': selectedOption === i, 'bg-slate-200 group-hover:bg-purple-200': selectedOption !== i,'bg-green-600': isSubmitted && selectedOption === i && isCorrectAnswer,
+                <div class="flex bg-slate-200 min-w-10 h-10 md:w-14 md:h-14 lg:px-6 lg:py-4 justify-center items-center rounded-md mr-2 md:mr-6 group-hover:bg-purple-200" [ngClass]="{'bg-[#A729F5]': selectedOption === i, 'bg-slate-200 group-hover:bg-purple-200': selectedOption !== i,'bg-green-600': isSubmitted && selectedOption === i && isCorrectAnswer,
                 'bg-red-600': isSubmitted && selectedOption === i && !isCorrectAnswer,
                 'bg-green-600-correct': isSubmitted && option === data.questions[currentQuestionIndex].answer && selectedOption !== i && !isCorrectAnswer,
                 }">
@@ -30,9 +30,10 @@
                     </p>
                 </div>
                 <p class="dark:text-white text-lg md:text-2xl font-semibold text-[#3B4D66] md:w-[25rem]" >{{option}}</p>
-                <i *ngIf="isSubmitted && option === data.questions[currentQuestionIndex].answer && !isNotSelected && selectedOption !== null" class="fa-regular fa-circle-check text-xl text-green-600 ml-2 absolute right-8"></i>
-                <i *ngIf="isSubmitted && option === data.questions[currentQuestionIndex].answer && selectedOption === i" class="fa-regular fa-circle-check text-xl text-green-600 ml-2 absolute right-8"></i>
-                <i *ngIf="isSubmitted && selectedOption === i && !isCorrectAnswer" class="fa-regular fa-circle-xmark text-xl text-red-500 ml-2 absolute right-8"></i>            </div>
+                <i *ngIf="isSubmitted && option === data.questions[currentQuestionIndex].answer && !isNotSelected && selectedOption !== null" class="fa-regular fa-circle-check text-xl text-green-600 ml-2 absolute right-2 md:right-8"></i>
+                <i *ngIf="isSubmitted && option === data.questions[currentQuestionIndex].answer && selectedOption === i" class="fa-regular fa-circle-check text-xl text-green-600 ml-2 absolute right-2 md:right-8"></i>
+                <i *ngIf="isSubmitted && selectedOption === i && !isCorrectAnswer" class="fa-regular fa-circle-xmark text-xl text-red-500 ml-2 absolute right-2 md:right-8"></i>            
+              </div>
             <button *ngIf="!isSubmitted" class="w-full h-14 md:h-20 bg-[#A729F5] text-lg md:text-xl text-white font-medium rounded-2xl hover:bg-[#d18afe]" (click) = "submitAnswer(data.id)">
                 Submit Answer
             </button>
