@@ -19,6 +19,7 @@ body{
 
 .dark-bg{
     background: #313E51 url("../src/assets/images/pattern-background-desktop-dark.svg") no-repeat;
+    transition: ease-in-out 0.5s;
 }
 .no-hover:hover {
     background-color: white !important;
@@ -65,9 +66,7 @@ body{
   .border-red-600 {
     border-color: #e53e3e;
   }
-  .bg-[#A729F5] {
-    background-color: #A729F5;
-  }
+ 
   .bg-green-600 {
     background-color: #38a169;
   }
@@ -80,12 +79,8 @@ body{
   .text-white {
     color: #fff;
   }
-  .text-[#626C7F] {
-    color: #626C7F;
-  }
-  .text-green-600 {
-    color: #38a169;
-  }
+ 
+ 
   .cursor-pointer {
     cursor: pointer;
   }

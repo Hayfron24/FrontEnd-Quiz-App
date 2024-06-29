@@ -13,7 +13,7 @@
         </div>
         <!-- options container -->
         <div class="relative">
-            <div *ngFor="let option of data.questions[currentQuestionIndex].options; let i = index" (click)="selectOption(i)" class="dark:bg-[#3B4D66] bg-white rounded-xl md:rounded-2xl px-3 p-3 md:h-20 lg:p-5 lg:h-28 flex items-center mb-6 shadow-md"
+            <div *ngFor="let option of data.questions[currentQuestionIndex].options; let i = index" (click)="selectOption(i)" class="dark:bg-[#3B4D66] transition ease-in-out duration-500 bg-white rounded-xl md:rounded-2xl px-3 p-3 md:h-20 lg:p-5 lg:h-28 flex items-center mb-6 shadow-md"
             [ngClass]="{'border-3 border-purple-600': selectedOption === i && !isSubmitted,
                     'border-3 border-green-600': isSubmitted && selectedOption === i && isCorrectAnswer,
                     'border-3 border-red-600': isSubmitted && selectedOption === i && !isCorrectAnswer,
